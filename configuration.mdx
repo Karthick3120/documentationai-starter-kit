@@ -1,0 +1,186 @@
+---
+title: Workspace Settings
+description: Configure your documentation workspace to match your team’s needs. Adjust structure, permissions, and content preferences for better collaboration.
+---
+
+## Overview
+
+Use workspace settings to shape how your documentation behaves for your team. In a starter kit like this one, you can adjust the structure, control access, and decide how content appears without changing the underlying product flow.
+
+Karthick K is a collaborative documentation space with the slogan, “The future of building happens together.” This page shows a generic setup you can customize for your own team, project, or internal knowledge base.
+
+<Callout kind="info">
+
+This page is a starter kit template. Replace the sample values, roles, and defaults with the settings that match your team.
+
+</Callout>
+
+## What you can configure
+
+<Columns cols={2}>
+  <Card title="Workspace preferences" icon="settings" href="#workspace-preferences">
+    Tune default behavior such as language, time zone, and editor preferences.
+  </Card>
+  <Card title="Organization settings" icon="book-open" href="#organization-settings">
+    Group content by team, project, or subject so people can find information quickly.
+  </Card>
+  <Card title="Access and permissions" icon="shield" href="#access-and-permissions">
+    Define who can view, edit, publish, or administer content.
+  </Card>
+  <Card title="Content display options" icon="layout-grid" href="#content-display-options">
+    Choose how pages, lists, and navigation appear across your workspace.
+  </Card>
+</Columns>
+
+## Workspace preferences
+
+Workspace preferences control the default experience for contributors and readers. You should set these early so the workspace feels consistent from the start.
+
+### Common settings
+
+| Setting | Example value | Why it matters |
+|---------|---------------|----------------|
+| Language | English | Keeps the editor and page defaults consistent |
+| Time zone | UTC | Standardizes timestamps across teams |
+| Homepage | `/introduction` | Gives new users a clear entry point |
+| Default editor mode | Markdown | Matches most documentation workflows |
+
+### Example configuration
+
+<CodeGroup tabs="JSON,YAML">
+  ```json
+  {
+    "workspaceName": "Karthick K Docs",
+    "language": "en",
+    "timeZone": "UTC",
+    "defaultHomepage": "/introduction",
+    "editorMode": "markdown"
+  }
+  ```
+  ```yaml
+  workspaceName: Karthick K Docs
+  language: en
+  timeZone: UTC
+  defaultHomepage: /introduction
+  editorMode: markdown
+  ```
+</CodeGroup>
+
+## Organization settings
+
+Organization settings help you keep documentation structured as the workspace grows. Use them to define where content lives, how it is grouped, and which sections are visible to each audience.
+
+<Steps>
+  <Step title="Create a top-level structure" icon="folder">
+    Start with broad categories such as Product, Operations, and Support. This gives contributors a clear place to add new pages.
+  </Step>
+  <Step title="Assign ownership" icon="users">
+    Set a responsible team or maintainer for each section so updates do not get lost.
+  </Step>
+  <Step title="Review naming rules" icon="check-circle">
+    Use consistent page titles and folder names so navigation stays predictable.
+  </Step>
+  <Step title="Publish the structure" icon="rocket">
+    Share the structure with your team and revise it as your documentation grows.
+  </Step>
+</Steps>
+
+## Access and permissions
+
+Permissions determine who can change settings, edit content, and publish updates. A simple model works best for most teams because it reduces confusion and keeps the review process clear.
+
+### Suggested role model
+
+<Tabs>
+  <Tab title="Owner" icon="shield">
+    Owners can manage workspace settings, membership, and critical publishing controls.
+
+    Use this role for trusted administrators only.
+  </Tab>
+  <Tab title="Editor" icon="edit-3">
+    Editors can create and update pages, but they cannot change workspace-wide permissions.
+  </Tab>
+  <Tab title="Viewer" icon="eye">
+    Viewers can read published content and follow links, but they cannot modify pages.
+  </Tab>
+</Tabs>
+
+<Callout kind="alert">
+
+Keep admin access limited. You should grant elevated permissions only to people who need them for day-to-day operations.
+
+</Callout>
+
+## Content display options
+
+Display options control how your documentation looks and how easily readers can scan it. These settings are useful when you want a workspace to feel organized and easy to navigate.
+
+### Recommended display choices
+
+- Show the sidebar on all documentation pages.
+- Use concise page titles.
+- Group related pages under one section.
+- Highlight the current page in navigation.
+- Keep code samples and tables visually consistent.
+
+### Advanced layout example
+
+<Expandable title="Optional display settings" default-open="false">
+
+You can enable extra features when your documentation needs them.
+
+- Collapsible navigation for large workspaces
+- Dense page lists for power users
+- Banner messages for announcements
+- Section anchors for long guides
+
+These options are especially useful when your content library grows beyond a few pages.
+
+</Expandable>
+
+## Setup checklist
+
+Use this checklist to finish your workspace configuration before inviting the rest of your team.
+
+1. Set the workspace name and homepage.
+2. Confirm the language and time zone.
+3. Create a clear folder structure.
+4. Assign owners for each documentation area.
+5. Review permissions for editors and viewers.
+6. Choose display preferences that match your workflow.
+7. Publish the workspace and verify the navigation.
+
+## Starter configuration example
+
+The following example shows a practical setup you can adapt for your own workspace. It keeps the defaults simple while leaving room to expand later.
+
+```javascript
+export const workspaceSettings = {
+  name: "Karthick K Docs",
+  slogan: "The future of building happens together",
+  theme: {
+    brandColor: "#5fed83",
+    mode: "light",
+  },
+  navigation: {
+    homepage: "/introduction",
+    showSidebar: true,
+    groupPagesBySection: true,
+  },
+  permissions: {
+    owner: ["docs-admins"],
+    editor: ["writers", "reviewers"],
+    viewer: ["all-authenticated-users"],
+  },
+};
+```
+
+## Best practices
+
+- Keep settings simple until your team needs more control.
+- Review permissions regularly, especially after team changes.
+- Use one homepage per workspace to avoid confusion.
+- Standardize page structure so readers can predict where information lives.
+- Document any custom behavior in an internal setup page.
+
+If you want a stronger default experience, start with the basics, then expand gradually as your content library grows.
